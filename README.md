@@ -18,17 +18,11 @@ Stow is a symlink farm manager which takes distinct packages of software and/or 
       - [MacOS](#macos)
       - [Fedora](#fedora)
     - [Installation via Source Code](#installation-via-source-code)
-      - [Downloading the latest tarball](#downloading-the-latest-tarball)
-      - [Create a dotfiles folder in the home directory](#create-a-dotfiles-folder-in-the-home-directory)
-      - [*Moving dotfiles to the hidden dotfiles folder (Optional)*](#moving-dotfiles-to-the-hidden-dotfiles-folder-optional)
   - [Usage](#usage)
     - [Linking files in the dotfiles folder](#linking-files-in-the-dotfiles-folder)
     - [Preparing the dotfiles folder before linking the files](#preparing-the-dotfiles-folder-before-linking-the-files)
     - [Unlinking files in the dotfiles folder](#unlinking-files-in-the-dotfiles-folder)
   - [Examples](#examples)
-    - [Managing dotfiles with Git across multiple machines](#managing-dotfiles-with-git-across-multiple-machines)
-    - [Syncing dotfiles across multiple machines](#syncing-dotfiles-across-multiple-machines)
-    - [Example bash script for automating the sync process](#example-bash-script-for-automating-the-sync-process)
   - [References](#references)
 
 
@@ -61,7 +55,7 @@ sudo dnf install stow
 The latest available stow version is the 2.4.0 since 2021-07-25. The tarball is available for download here: https://ftp.gnu.org/gnu/stow/
 
 
-#### Downloading the latest tarball
+- Downloading the latest tarball
 You can download the latest tarball using the following command via wget. The tarball will be downloaded to the Downloads directory. You can change the directory to your preferred location if needed.:
 
 ``` bash
@@ -88,7 +82,7 @@ You can verify the installation by running the following command:
 stow --version
 ```
 
-#### Create a dotfiles folder in the home directory
+- Create a dotfiles folder in the home directory
 
 Create a dotfiles folder in the home directory to store the configuration files. You can create the folder using the following command:
 
@@ -96,7 +90,7 @@ Create a dotfiles folder in the home directory to store the configuration files.
 
 
 
-#### *Moving dotfiles to the hidden dotfiles folder (Optional)*
+- *Moving dotfiles to the hidden dotfiles folder (Optional)*
 `mv ~/dotfiles ~/.dotfiles` 
 
 For the purpose of this guide, we will assume that the dotfiles folder is located in the home directory. If the dotfiles folder is located elsewhere, replace `~/.dotfiles` with the appropriate path.
@@ -164,7 +158,7 @@ This allows you to keep all your configuration files in one place and easily man
 stow -d ~/.dotfiles -t ~ -S vim
 ```
 
-### Managing dotfiles with Git across multiple machines
+-  Managing dotfiles with Git across multiple machines
 
 If you want to manage your dotfiles across multiple machines using Git, you can create a Git repository for your dotfiles and use stow to manage the symbolic links.
 
@@ -193,7 +187,7 @@ git push -u origin master
 
 Now you can clone the repository on other machines and use stow to manage the symbolic links to your dotfiles.
 
-### Syncing dotfiles across multiple machines
+-  Syncing dotfiles across multiple machines
 
 
 If you want to sync your dotfiles across multiple machines, you can create a script that pulls the latest changes from the repository and uses stow to manage the symbolic links.
@@ -222,7 +216,7 @@ stow -d ~/.dotfiles -t ~ -S bash
 > - Replace `<remote-repository-url>` with the URL of your remote Git repository if you are using a remote repository.
 > - Make sure that the script is executable by running `chmod +x sync-dotfiles.sh` before you can run it as a shell script.
 
-### Example bash script for automating the sync process
+-  Example bash script for automating the sync process
 Here is an [example bash script](./.bin/sync-dotfiles.sh) of how you can clone the repository and use stow to manage the symbolic links:
 
 You can run this script on each machine to sync your dotfiles and manage the symbolic links using stow.
