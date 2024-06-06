@@ -1,8 +1,12 @@
 # Dotfiles
 -------------------
 
+# Dotfiles
+-------------------
+
 This section contains the dotfiles, which are Linux configuration files used to customize builds. Stow is utilized to create symbolic links and place the dotfiles in their appropriate locations.
 
+## Overview 
 ## Overview 
 
 Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.
@@ -24,6 +28,7 @@ Stow is a symlink farm manager which takes distinct packages of software and/or 
     - [Unlinking files in the dotfiles folder](#unlinking-files-in-the-dotfiles-folder)
   - [Examples](#examples)
   - [References](#references)
+  - [License](#license)
 
 
 
@@ -33,11 +38,13 @@ Stow is a symlink farm manager which takes distinct packages of software and/or 
 ### Via Package Manager
 
 #### Ubuntu
+#### Ubuntu
 ```bash
 sudo apt-get update
 sudo apt-get install stow
 ```
 
+#### MacOS
 #### MacOS
 
 ```bash
@@ -45,16 +52,19 @@ brew install stow
 ```
 
 #### Fedora
+#### Fedora
 
 ```bash
 sudo dnf install stow
 ```
 
 ### Installation via Source Code
+### Installation via Source Code
 
 The latest available stow version is the 2.4.0 since 2021-07-25. The tarball is available for download here: https://ftp.gnu.org/gnu/stow/
 
 
+- Downloading the latest tarball
 - Downloading the latest tarball
 You can download the latest tarball using the following command via wget. The tarball will be downloaded to the Downloads directory. You can change the directory to your preferred location if needed.:
 
@@ -77,6 +87,20 @@ make
 sudo make install
 ```
 
+You can verify the installation by running the following command:
+```bash
+stow --version
+```
+
+- Create a dotfiles folder in the home directory
+
+Create a dotfiles folder in the home directory to store the configuration files. You can create the folder using the following command:
+
+`mkdir ~/.dotfiles`
+
+
+
+- *Moving dotfiles to the hidden dotfiles folder (Optional)*
 You can verify the installation by running the following command:
 ```bash
 stow --version
@@ -126,12 +150,14 @@ You can use the following commands to create the directory structure in the dotf
 This command will create symbolic links in the home directory to the files in the `~/.dotfiles/vim` directory.
 
 ### Unlinking files in the dotfiles folder
+### Unlinking files in the dotfiles folder
 
 `stow -d ~/.dotfiles -t ~ -D {PATH/TO/FILE}`
 > Note: Replace `{PATH/TO/FILE}` with the path of the file you want to unlink. The command will remove the symbolic links in the home directory to the files in the dotfiles folder.
 
 
 
+## Examples
 ## Examples
 For example, let's say you want to manage your `.vimrc` file using stow. You would create a directory structure in the dotfiles folder that mirrors the home directory structure. You would then move the `.vimrc` file to the appropriate directory in the dotfiles folder and use the stow command to link it to the home directory.
 
@@ -158,6 +184,7 @@ This allows you to keep all your configuration files in one place and easily man
 stow -d ~/.dotfiles -t ~ -S vim
 ```
 
+-  Managing dotfiles with Git across multiple machines
 -  Managing dotfiles with Git across multiple machines
 
 If you want to manage your dotfiles across multiple machines using Git, you can create a Git repository for your dotfiles and use stow to manage the symbolic links.
@@ -188,6 +215,7 @@ git push -u origin master
 Now you can clone the repository on other machines and use stow to manage the symbolic links to your dotfiles.
 
 -  Syncing dotfiles across multiple machines
+-  Syncing dotfiles across multiple machines
 
 
 If you want to sync your dotfiles across multiple machines, you can create a script that pulls the latest changes from the repository and uses stow to manage the symbolic links.
@@ -217,6 +245,7 @@ stow -d ~/.dotfiles -t ~ -S bash
 > - Make sure that the script is executable by running `chmod +x sync-dotfiles.sh` before you can run it as a shell script.
 
 -  Example bash script for automating the sync process
+-  Example bash script for automating the sync process
 Here is an [example bash script](./.bin/sync-dotfiles.sh) of how you can clone the repository and use stow to manage the symbolic links:
 
 You can run this script on each machine to sync your dotfiles and manage the symbolic links using stow.
@@ -224,7 +253,14 @@ You can run this script on each machine to sync your dotfiles and manage the sym
 
 
 ## References
+## References
 - https://www.gnu.org/software/stow/
 - https://www.gnu.org/software/stow/manual/stow.html
 - https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/
+
+## License
+![License](https://img.shields.io/badge/License-Unlicense-blue.svg) 
+
+This project is licensed under the Unilicense - see the [LICENSE](./LICENSE) file for details.
+
 
