@@ -24,6 +24,7 @@ Stow is a symlink farm manager which takes distinct packages of software and/or 
     - [Unlinking files in the dotfiles folder](#unlinking-files-in-the-dotfiles-folder)
   - [Examples](#examples)
   - [References](#references)
+  - [License](#license)
 
 
 
@@ -227,4 +228,10 @@ You can run this script on each machine to sync your dotfiles and manage the sym
 - https://www.gnu.org/software/stow/
 - https://www.gnu.org/software/stow/manual/stow.html
 - https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/
+
+## License
+![License](https://img.shields.io/badge/License-Unlicense-blue.svg) 
+
+This project is licensed under the Unilicense - see the [LICENSE](./LICENSE) file for details.
+
 
